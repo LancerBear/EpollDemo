@@ -1,5 +1,9 @@
-echo "build start"
+echo "===================build start==================="
 
 mkdir ./build
-cmake
+cd build
+cmake ..
 make
+cd ..
+mkdir bin
+cp build/server/src/server bin

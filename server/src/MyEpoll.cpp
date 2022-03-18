@@ -13,7 +13,7 @@
 MyEpoll::MyEpoll(unsigned short port, queue<MesgNode>* q) {
     this->portNum = port;
     this->pq = q;
-    int res = pthread_create(&threadID, NULL, threadRun, (void*)this);
+    pthread_create(&threadID, NULL, threadRun, (void*)this);
 }
 
 MyEpoll::~MyEpoll() {
@@ -24,7 +24,7 @@ int MyEpoll::setNonBlock() {
     // if (fcntl(sockfd, F_SETFL, fcntl(sockfd, F_GETFD, 0)|O_NONBLOCK) == -1) {
     //     return -1;
     // }
-    // return 0;  
+    return 0;
 }
 
 int MyEpoll::initListenSocket(int* ls) {
